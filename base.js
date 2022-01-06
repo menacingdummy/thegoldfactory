@@ -54,8 +54,8 @@ function updategold() {
 		goldmining=30;
 	}
 
-	if(buyfactory==true) {
-		gbps=Math.round(goldmining/10);
+	if(buyfactory==false) {
+		gbps=Math.round(goldmining/100);
 	}
 }
 function updateitems() {
