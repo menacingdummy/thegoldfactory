@@ -461,7 +461,7 @@ $(document).ready(function() {
 
 	goldbar=0; //0
 	ironbar=0; //0
-	gbps=100;
+	gbps=0.1;
 	goldmining=30;
 	ibpt=0;
 	ibtime=3600;
