@@ -55,7 +55,7 @@ function updategold() {
 	}
 
 	if(buyfactory==true) {
-		gbps=Math.round(goldmining/100);
+		gbps=Math.round(goldmining/10);
 	}
 }
 function updateitems() {
@@ -104,10 +104,10 @@ function updateitems() {
 		if(enchant_life>0) { enchant_html=enchant_html+"Life "+enchant_life+" (Increases HP by "+enchant_life*2+" each time you attack)<br>"; }
 		$(".enchants").html(enchant_html);
 	}
-	$(".enchant-attack-price").html(enchant_attack*enchant_attack*2000+2000);
-	$(".enchant-defense-price").html(enchant_defense*enchant_defense*2500+2500);
-	$(".enchant-countdown-price").html(enchant_countdown*enchant_countdown*5000+5000);
-	$(".enchant-life-price").html(enchant_life*enchant_life*2500+2500);
+	$(".enchant-attack-price").html(enchant_attack*enchant_attack*200);
+	$(".enchant-defense-price").html(enchant_defense*enchant_defense*250);
+	$(".enchant-countdown-price").html(enchant_countdown*enchant_countdown*500);
+	$(".enchant-life-price").html(enchant_life*enchant_life*250);
 	$(".button-enchant-attack").attr("value","Attack "+(enchant_attack+1));
 	$(".button-enchant-defense").attr("value","Defense "+(enchant_defense+1));
 	$(".button-enchant-life").attr("value","Life "+(enchant_life+1));
@@ -209,10 +209,10 @@ function updateitems() {
 		$(".boots-area").html("Sorry, I have no better boots for you");
 	}
 
-	$(".buy-helmet-price").html((helmet*helmet)*1000+1000);
-	$(".buy-chestplate-price").html((chestplate*chestplate)*1000+1000);
-	$(".buy-pants-price").html((pants*pants)*1000+1000);
-	$(".buy-boots-price").html((boots*boots)*1000+1000);
+	$(".buy-helmet-price").html((helmet*helmet)*100);
+	$(".buy-chestplate-price").html((chestplate*chestplate)*100);
+	$(".buy-pants-price").html((pants*pants)*100);
+	$(".buy-boots-price").html((boots*boots)*100);
 
 	$(".absorb-percent").html(helmet+chestplate+pants+boots);
 
@@ -328,16 +328,16 @@ function checkitem() {
 		}
 	}
 	if(goldbar < 400) { $(".buy-pizza-20").attr("disabled","disabled"); } else { $(".buy-pizza-20").removeAttr("disabled"); }
-	if(goldbar < 100) { $(".buy-iron-bar").attr("disabled","disabled"); } else { $(".buy-iron-bar").removeAttr("disabled"); }
+	if(goldbar < 1) { $(".buy-iron-bar").attr("disabled","disabled"); } else { $(".buy-iron-bar").removeAttr("disabled"); }
 	if(goldbar < 20) { $(".training-button").attr("disabled","disabled"); }else { $(".training-button").removeAttr("disabled"); }
 	if(ironbar < ironprice) { $(".buy-1-mining").attr("disabled","disabled"); } else { $(".buy-1-mining").removeAttr("disabled"); }
 	if(ironbar < (ironprice*10)) { $(".buy-10-mining").attr("disabled","disabled"); } else { $(".buy-10-mining").removeAttr("disabled"); }
 	if(ironbar < (ironprice*100)) { $(".buy-100-mining").attr("disabled","disabled"); } else { $(".buy-100-mining").removeAttr("disabled"); }
 	if(goldbar < (skilllvl+1)) { $(".upgrade-price").attr("disabled","disabled"); } else { $(".upgrade-price").removeAttr("disabled"); }
-	if(goldbar < 5000) { $(".buy-factory-button").attr("disabled","disabled"); } else { $(".buy-factory-button").removeAttr("disabled"); }
+	if(goldbar < 5) { $(".buy-factory-button").attr("disabled","disabled"); } else { $(".buy-factory-button").removeAttr("disabled"); }
 	if(ironbar < goldprice) { $(".buy-1-mining-gold").attr("disabled","disabled"); } else { $(".buy-1-mining").removeAttr("disabled"); }
-	if(ironbar < goldprice*10) { $(".buy-10-mining-gold").attr("disabled","disabled"); } else { $(".buy-10-mining").removeAttr("disabled"); }
-	if(ironbar < goldprice*100) { $(".buy-100-mining-gold").attr("disabled","disabled"); } else { $(".buy-100-mining").removeAttr("disabled"); }
+	if(ironbar < goldprice*1) { $(".buy-10-mining-gold").attr("disabled","disabled"); } else { $(".buy-10-mining").removeAttr("disabled"); }
+	if(ironbar < goldprice*1) { $(".buy-100-mining-gold").attr("disabled","disabled"); } else { $(".buy-100-mining").removeAttr("disabled"); }
 }
 function buy(item,number) {
 	for(i=0;i<items.length;i++) {
@@ -414,7 +414,7 @@ function buyminingmachinegold(amount) {
 }
 function enchantsword(type) {
 	if(type=="attack") {
-		price=enchant_attack*enchant_attack*2000+2000;
+		price=enchant_attack*enchant_attack*200;
 		if(goldbar>=price) {
 			goldbar-=price;
 			enchant_attack++;
@@ -423,7 +423,7 @@ function enchantsword(type) {
 	}
 	else if(type=="defense") {
 		if(enchant_defense<10) {
-			price=enchant_defense*enchant_defense*2500+2500;
+			price=enchant_defense*enchant_defense*250;
 			if(goldbar>=price) {
 				goldbar-=price;
 				enchant_defense++;
@@ -433,7 +433,7 @@ function enchantsword(type) {
 	}
 	else if(type=="countdown") {
 		if(enchant_countdown==0) {
-			price=enchant_countdown*enchant_countdown*5000+5000;
+			price=enchant_countdown*enchant_countdown*500;
 			if(goldbar>=price) {
 				goldbar-=price;
 				enchant_countdown++;
@@ -443,7 +443,7 @@ function enchantsword(type) {
 	}
 	else if(type=="life") {
 		if(enchant_life<10) {
-			price=enchant_life*enchant_life*2500+2500;
+			price=enchant_life*enchant_life*250;
 			if(goldbar>=price) {
 				goldbar-=price;
 				enchant_life++;
@@ -461,7 +461,7 @@ $(document).ready(function() {
 
 	goldbar=0; //0
 	ironbar=0; //0
-	gbps=1;
+	gbps=100;
 	goldmining=30;
 	ibpt=0;
 	ibtime=3600;
